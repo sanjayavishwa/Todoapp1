@@ -4,7 +4,7 @@ import { CheckCircle2, Circle, Trash2, LogOut, Plus } from "lucide-react"
 const API_BASE = "http://localhost:3000/api/todos"
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState("personal")
+  const [activeTab, setActiveTab] = useState("professional")
   const [allTasks, setAllTasks] = useState([])
   const [input, setInput] = useState("")
   const [loading, setLoading] = useState(false)
@@ -120,8 +120,8 @@ export default function App() {
 </h1>
 
       {/* Tabs */}
-      <div className="w-full max-w-xl flex border-b border-[#d5cfc4] mb-6">
-        {["personal", "professional"].map((tab) => (
+      <div className="w-full max-w-xl flex gap-4 border-b-2 border-green-500 mb-6">
+        {["personal", "professional", "diary"].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -136,6 +136,7 @@ export default function App() {
           </button>
         ))}
       </div>
+
 
       {/* Input */}
       <div className="w-full max-w-xl flex items-center gap-2 mb-6">
@@ -207,7 +208,7 @@ export default function App() {
                   onClick={() => deleteTask(task._id)}
                   className="opacity-0 group-hover:opacity-100 transition-opacity text-[#c4bdb2] hover:text-red-400 active:scale-90"
                 >
-                  <Trash2 size={18} strokeWidth={1.8} />
+                  <Trash2 size={20} strokeWidth={1.5} />
                 </button>
               </li>
             ))}
